@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Main page of the Server App">
+    <meta name="author" content="">
+
+    <title>Server-App - Main Page</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">
+        <p th:text="'Logged user is: ' + ${user.id}"/>
+    </a>
+</nav>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 align="center">Server List</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div th:if="${not #lists.isEmpty(serverList)}">
+            <table class="table table-striped">
+                <tr>
+                    <th>Server Name</th>
+                    <th>Active</th>
+                    <th>OS Type</th>
+                    <th>Action</th>
+                </tr>
+                <tr th:each="server : ${serverList}">
+                    <td th:text="${server.getServerName()}"></td>
+                    <td th:text="${server.isActive()}"></td>
+                    <td th:text="${server.getOsType()}"></td>
+                    <td> <button>Change status</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+</body>
+</html>

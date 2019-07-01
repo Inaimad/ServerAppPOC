@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Log in page for the HSBC Payments Server App">
+    <meta name="author" content="">
+
+    <title>Server-App - LOG IN</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Login</h3>
+                <form action="#" th:action="@{/}" th:object="${user}" method="post">
+                    <div class="form-group">
+                        <input type="text" th:field="*{id}" class="form-control" placeholder="User ID" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" th:field="*{password} "class="form-control" placeholder="Domain Password"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btnSubmit" value="Submit" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <img src="../static/images/HSBC_logo.png" th:src="@{images/HSBC_logo.png}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+</body>
+</html>
